@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Rect;
 import android.support.annotation.Nullable;
 import android.util.AttributeSet;
 import android.view.View;
@@ -46,7 +47,7 @@ public class Practice14GetFontMetricsView extends View {
         // 这种居中算法的优点是，可以让不同的文字的 baseline 对齐
 
         // 本题和上一题不同的地方应该是：
-        // 每个字的top和bottom都不一样，导致文字中心会变动
+        // 每个字的实际绘制上下界都不一样，导致文字中心会变动
         // 而每个字的ascent和descent都是一样的，所以以ascent和descent为矩形上下限居中
         // 也因此可以从paint统一获取ascent和descent，而文字区域则必须根据文字获取
         float middle = (top + bottom) / 2 - (fontMetrics.ascent + fontMetrics.descent) / 2;
