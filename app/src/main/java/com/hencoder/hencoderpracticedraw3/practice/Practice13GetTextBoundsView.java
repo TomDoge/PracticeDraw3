@@ -68,6 +68,10 @@ public class Practice13GetTextBoundsView extends View {
 
     private float getBaseLine(String s) {
         paint2.getTextBounds(s, 0, s.length(), rect);
+        // 本例为已知中心求基线
+        // -(rect.top+rect.bottom)/2表示基线相对文字中心的位置
+        // 而文字中心也就是显示区域的中心：(top+bottom)/2
+        // 二者相加即为基线的位置
         return (top + bottom) / 2 - (rect.top + rect.bottom) / 2;
     }
 }
